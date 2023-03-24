@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { Navigation } from "react-minimal-side-navigation/lib";
+import { Link, Route, Routes } from "react-router-dom";
+import Icon from "awesome-react-icons/lib/cjs/Icon";
+import 'react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css';
+import InputSample from "./pages/InputSample/InputSample";
+import MainAside from "./components/Aside/MainAside/MainAside";
+import { Global } from "@emotion/react";
+import { reset } from "./styles/Global/reset";
+
+
+function Test1() {
+ return (<h1>test1</h1>);
+}
+
+function Test2() {
+ return (<h1>test2</h1>); 
+} 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Global styles={reset} />
+      <MainAside />
+      <Routes>
+        <Route path="/t1" Component={Test1} />
+        <Route path="/t2" Component={Test2} />
+        <Route path="/sample/input/1" Component={InputSample}/>
+      </Routes>
+    </>
   );
 }
 
