@@ -6,6 +6,8 @@ import InputSample from "./pages/InputSample/InputSample";
 import MainAside from "./components/Aside/MainAside/MainAside";
 import { Global } from "@emotion/react";
 import { reset } from "./styles/Global/reset";
+import UserList from "./pages/UserList/UserList";
+import Todo from "./pages/Todo/Todo";
 
 
 function Test1() {
@@ -25,6 +27,8 @@ function App() {
         <Route path="/t1" Component={Test1} />
         <Route path="/t2" Component={Test2} />
         <Route path="/sample/input/1" Component={InputSample}/>
+        <Route path="/users" Component={UserList}/>
+        <Route path="/todo" Component={Todo}/>
       </Routes>
     </>
   );

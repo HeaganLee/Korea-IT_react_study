@@ -5,20 +5,25 @@ import { HiHome } from 'react-icons/hi';
 import { GrTest } from 'react-icons/gr';
 import { BsCardChecklist } from 'react-icons/bs';
 import { BiListCheck } from 'react-icons/bi';
+import { FaUsers } from 'react-icons/fa';
 import * as S from './style'
+import { useNavigate } from 'react-router-dom';
+import { IoIosList } from 'react-icons/io';
 
 const MainAside = () => {
+    const navigate = useNavigate();
+
     return (
         <aside css={S.style}>
             <Navigation
             activeItemId="/"
             onSelect={({itemId}) => {
-              console.log(itemId)
+                navigate(itemId);
             }}
             items={[
              {
                 title: "Home",
-                itemId: '/t1',
+                itemId: '/',
                 elemBefore: () => <HiHome />
              },
              {
@@ -33,7 +38,7 @@ const MainAside = () => {
              },
              {
                 title: 'Sample',
-                itemId: '/sample',
+                itemId: '/sample/input/1',
                 elemBefore: () => <BsCardChecklist />,
                 subNav: [
                     {
@@ -42,6 +47,23 @@ const MainAside = () => {
                         elemBefore: () => <BiListCheck />
                     }
                 ]
+             },
+             {
+                title: 'List',
+                itemId: '/users',
+                elemBefore: () => <BsCardChecklist />,
+                subNav: [
+                    {
+                        title: "사용자 전체 조회",
+                        itemId: '/users',
+                        elemBefore: () => <FaUsers />
+                    }
+                ]
+             },
+             {
+                title: 'TodoList',
+                itemId: '/todo',
+                elemBefore: () => <IoIosList />,
              },
             ]}
           />
